@@ -46,7 +46,33 @@ const fetchAllRecords = async (req, res) => {
     })
   }
 }
+const countOfManagers = async (req, res) => {
+  try {
+    const resp = await client.query(
+      `SELECT *
+      FROM Employees  INNER JOIN
+      (
+      SELECT employee_id, COUNT(*) AS CNT
+      FROM manager_employee 
+      GROUP BY employee_id
+      ) manager_employee ON Employees.emp_id = manager_employee.employee_id 
+      WHERE CNT <= ${req.body.number}
+      `
+    )
+    res.status(200).json({
+      response: resp,
+      message: 'Data inserted into db successfully!....'
+    })
+  } catch (error) {
+    console.log(error)
+    res.status(404).json({
+      response: null,
+      message: 'Failed to fetch the records!...'
+    })
+  }
+}
 module.exports = {
   InsertingData,
-  fetchAllRecords
+  fetchAllRecords,
+  countOfManagers
 }
