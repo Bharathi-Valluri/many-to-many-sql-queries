@@ -8,7 +8,7 @@ const InsertingData = async (req, res) => {
 	
         INSERT INTO Employees(emp_id,emp_name, emp_age) VALUES (${req.body.emp_id[0]},'${req.body.emp_name[0]}',${req.body.emp_age[0]}),(${req.body.emp_id[1]},'${req.body.emp_name[1]}',${req.body.emp_age[1]}),(${req.body.emp_id[2]},'${req.body.emp_name[2]}',${req.body.emp_age[2]}),(${req.body.emp_id[3]},'${req.body.emp_name[3]}',${req.body.emp_age[3]});
 
-        INSERT INTO manager_employee(manager_id, employee_id) VALUES (${req.body.manager_id[0]},${req.body.employee_id[0]}),(${req.body.manager_id[1]},${req.body.employee_id[1]}),(${req.body.manager_id[2]},${req.body.employee_id[2]},(${req.body.manager_id[3]},${req.body.employee_id[3]}),(${req.body.manager_id[4]},${req.body.employee_id[4]}),(${req.body.manager_id[5]},${req.body.employee_id[5]}),(${req.body.manager_id[6]},${req.body.employee_id[6]})`
+        INSERT INTO manager_employee(manager_id, employee_id) VALUES (${req.body.manager_id[0]},${req.body.employee_id[0]}),(${req.body.manager_id[1]},${req.body.employee_id[1]}),(${req.body.manager_id[2]},${req.body.employee_id[2]}),(${req.body.manager_id[3]},${req.body.employee_id[3]}),(${req.body.manager_id[4]},${req.body.employee_id[4]}),(${req.body.manager_id[5]},${req.body.employee_id[5]}),(${req.body.manager_id[6]},${req.body.employee_id[6]})`
     )
     console.log(`Added an employee details with the name ${req.body.name}`)
     res.status(200).json({
