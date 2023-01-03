@@ -30,7 +30,7 @@ const fetchAllRecords = async (req, res) => {
       LEFT JOIN manager_employee 
       ON manager_employee.manager_id=managers.m_id
       LEFT JOIN employees ON 
-      employees.emp_id=manager_employee.employee_id and employees.emp_age<=${req.body.emp_age}
+      employees.emp_id=manager_employee.employee_id and employees.emp_age>=${req.body.emp_age}
       group by managers.m_id
       having count(employees.emp_id)=0`
     )
